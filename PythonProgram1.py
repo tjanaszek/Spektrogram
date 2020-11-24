@@ -1,12 +1,12 @@
 import tkinter as tk
 import random
 
-import soundfile as sf
-import sounddevice as sd
+#import soundfile as sf
+#import sounddevice as sd
 
-import matplotlib
-matplotlib.use('TKAgg')
-from matplotlib.backends.backend_tkagg import FigureCanvasTKAgg
+#import matplotlib
+#matplotlib.use('TKAgg')
+#from matplotlib.backends.backend_tkagg import FigureCanvasTKAgg
 
 class Aplikacja(tk.Frame):
    
@@ -19,7 +19,6 @@ class Aplikacja(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
         self.parent = parent
-
 
         #######################
         menubar = tk.Menu(self)
@@ -46,15 +45,15 @@ class Aplikacja(tk.Frame):
         self.parent.config(menu=menubar)
     
         btn1 = tk.Button(self, text="Play", command=lambda:self.fun(1), state=tk.ACTIVE)
-        btn1.place(x=50, y=50)
+        btn1.place(x=2, y=2, width=50, height=25)
         btn2 = tk.Button(self, text="Pause", command=lambda:self.fun(1), state=tk.ACTIVE)
-        btn2.grid(row=0, column=1)
-        btn3 = tk.Button(self, text=" ", command=lambda:self.fun(1), state=tk.ACTIVE)
-        btn3.grid(row=0,column=2)
+        btn2.place(x=52, y=2, width=50, height=25)
+        btn3 = tk.Button(self, text="Nagraj", command=lambda:self.fun(1), state=tk.ACTIVE)
+        btn3.place(x=102, y=2, width=50, height=25)
         btn4 = tk.Button(self, text=" ", command=lambda:self.fun(1), state=tk.ACTIVE)
-        btn4.grid(row=0,column=3)
+        btn4.place(x=152, y=2, width=50, height=25)
         btn5 = tk.Button(self, text=" ", command=lambda:self.fun(1), state=tk.ACTIVE)
-        btn5.grid(row=0,column=4)
+        btn5.place(x=202, y=2, width=50, height=25)
 
         #lbl = tk.Label(self, text="label 1", anchor=tk.E)
         #lbl.place(x=100, y=50, width=100, height=25)
@@ -65,9 +64,9 @@ class Aplikacja(tk.Frame):
         # tk.Checkbutton
         # tk.Entry
 
-        widget1 = tk.Canvas(self, bg="blue", height=100).grid(columnspan=5, sticky="w")
-        lbl = tk.Label(self, text="Opis pliku dźwiękowego", anchor=tk.E).grid(column=1, columnspan=6, sticky="w")
-        widget2 = tk.Canvas(self, bg="black").grid(columnspan=6, sticky="w")
+        widget1 = tk.Canvas(self, bg="blue", height=100).place(x= 10, y=30, width=500, height=300)
+        #lbl = tk.Label(self, text="Opis pliku dźwiękowego", anchor=tk.E).grid(column=1, columnspan=6, sticky="w")
+        widget2 = tk.Canvas(self, bg="black").place(x= 10, y=350, width=500, height=80)
 
         # grid // kratka
         # place// dokładnie ustawiamy
@@ -83,7 +82,7 @@ class Aplikacja(tk.Frame):
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("Spektrogram")
-    root.geometry("500x400")
+    root.geometry("600x450")
     root.resizable(False,False)
     app = Aplikacja(root)
     root.mainloop()
